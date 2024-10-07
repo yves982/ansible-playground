@@ -1,9 +1,18 @@
 ---
+# using docker "ansible" for vault encryption / decryption
+# ... and ansible-playbook execution
+# start docker "ansible",
+# exec source ~/.profile
+# exec your playbook "ansible-playbook -i inventory.yml pingplaybook.yml -J"
+# ansible-vault password is the same as ssh key's
+# enjoy
+# N.B: docker run command is
+# docker run --name ansible -it -v /c/users/yves_/.ssh:/root/.ssh -v /d/users/yves_/source/repos/ansible-playground:/apps -w /apps ansible-custom
+# from cmder shell (to have a unix like path with /c/* and /d/* working)
+# then everything work as intended
 ovh:
   hosts:
     main:
-      # using docker "ansible" for vault encryption / decryption
-      # ... and ansible-playbook execution
       ansible_host: 51.254.210.40
       ansible_user: "{{ ovh_user }}"
       ansible_private_key_file: /root/.ssh/ed25519_ovh_new
