@@ -1,0 +1,9 @@
+---
+ovh:
+  hosts:
+    main:
+      # using docker "ansible" for vault encryption / decryption
+      # ... and ansible-playbook execution
+      ansible_host: 51.254.210.40
+      ansible_user: "{{ ovh_user }}"
+      ansible_private_key_file: /root/.ssh/ed25519_ovh_new
